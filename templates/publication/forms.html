@@ -1,0 +1,14 @@
+{% load i18n %}
+
+{% block formcontent %}
+<div class="form1d"><strong>{% trans "Durée: 2 minutes, Visible: 45 jours, Coût: Gratuit, Vue: Publique" %}</strong></div>
+{{ form.publication }}
+
+       <div class="file-drop-area">
+  <span class="fake-btn">{% trans "Choisir une image 1" %}</span>
+  <span class="file-msg">{% trans "déposez un fichiers au format 250px-250px" %}</span>
+   <input type="file" class="file-input" name="image1" accept="image/*" id="id_image1">
+</div>
+
+
+{% endblock %}

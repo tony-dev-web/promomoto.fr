@@ -1,0 +1,17 @@
+{% extends 'layout/backend.html' %}
+{% load i18n %}
+{% block content %}
+<section class="msi1a">
+<div class="form1a">
+   <h1 class="sle00">{% trans "Definir votre groupe utilisateur" %}</h1>
+    <form method="post" class="prf8" >
+    <input type="hidden" name="csrfmiddlewaretoken" value="{{ csrf_token }}">
+
+ {{ form.surnom }}
+     {{ form.role }}
+
+
+
+    <p>On ne peut plus se serrer les mains? Serront nous les coudes !</p>
+    <input class="subm1" type="submit" value="Enregistrer">
+    </form></div></section>{% endblock %}

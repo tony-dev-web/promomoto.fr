@@ -1,0 +1,33 @@
+{% extends 'layout/base.html' %}
+{% load i18n %}
+{% block content %}
+<article class="msi1a c5">
+<h1>{% trans "Liste de vos commandes" %}</h1>
+
+
+
+    <ul class="msi1a1_00">
+ {% if AA %}   {% for xx in AA %}
+<li class="msi1a1_0" style="padding:10px">
+   <div class="msi1a1_4" >
+    <p class="msi1a1_5" >{{ xx.ville }}</p>
+    <p class="msi1a1_7">{{ xx.def_stock|safe }} {% trans "Date de la commande" %} {{ xx.date_add|date:"j M Y" }}</p>
+    <h3 class="msi1a1_9 c2"><a href="{{ xx.url_frontend }}">{{ xx.products }}</a></h3>
+<p class="msi1a1_8">{{ xx.total }} €</p></div>
+{% if xx.prix %}<div class="msi1a1_11"><span class="msi1a1_12">{{ xx.prix }} €</span>
+
+
+</div>{% endif %}
+</li>{% endfor %}
+    {% else %}<li class="msi1b1_13">
+        <p class="c5">{% trans "Aucun produit dans le panier pour le moment" %}</p>
+        <p class="c5"><a href="/recherche/?s=">{% trans "Découvrir des pièces" %}</a></p>
+    </li>{% endif %}
+
+    </ul>
+
+
+
+<a  href="/" >Retour sur la page d'accueil</a>
+</article>
+{% endblock %}

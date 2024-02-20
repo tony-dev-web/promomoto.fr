@@ -1,0 +1,13 @@
+{% extends 'layout/backend.html' %}
+{% load i18n %}
+{% block content %}
+<article class="msi1a c5">
+
+   <header><h1>{% trans "Confirmation de commande" %}</h1>
+
+       <h1>{% trans "Vous avez effectuer un " %}<span class="c2">{% trans "très bon choix" %}</span></h1>
+
+        <p>{% trans "Nous vous confirmons votre commande, elle sera expédier dans les 24heures suivant vos conditions souhaitées" %}</p></header>
+            <a href="/">Retourné sur la page d'accueil</a>
+</article>
+{% endblock %}

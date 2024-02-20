@@ -1,0 +1,41 @@
+{% load i18n %}
+
+{% block formcontent %}
+<div style="margin-bottom: 20px;">
+       <div class="file-drop-area">
+  <span class="fake-btn">{% trans "Choisir une image 1" %}</span>
+  <span class="file-msg">{% trans "déposez un fichiers au format 250px-250px" %}</span>
+   <input type="file" class="file-input" name="image1" accept="image/*" id="id_image1">
+</div>
+
+                <div class="file-drop-area">
+  <span class="fake-btn">{% trans "Choisir une image 2" %}</span>
+  <span class="file-msg">{% trans "déposez un fichiers au format 250px-250px" %}</span>
+   <input type="file" class="file-input" name="image2" accept="image/*" id="id_image2">
+</div>
+</div>
+
+
+{{ form.title }}
+{{ form.description }}
+{{ form.vp_id }}
+{{ form.prix }}
+{{ form.categorie }}
+{{ form.etat }}
+{{ form.type }}
+{{ form.stock }}
+
+                <div class="file-drop-area">
+  <span class="fake-btn">{% trans "Choisir une image 3" %}</span>
+  <span class="file-msg">{% trans "déposez un fichiers au format 250px-250px" %}</span>
+   <input type="file" class="file-input" name="image3" accept="image/*" id="id_image3">
+</div>
+
+                <div class="file-drop-area">
+  <span class="fake-btn">{% trans "Choisir une image 4" %}</span>
+  <span class="file-msg">{% trans "déposez un fichiers au format 250px-250px" %}</span>
+   <input type="file" class="file-input" name="image4" accept="image/*" id="id_image4">
+</div>
+
+
+{% endblock %}

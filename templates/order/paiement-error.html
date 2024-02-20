@@ -1,0 +1,10 @@
+{% extends 'layout/backend.html' %}
+{% load i18n %}
+{% block content %}
+<article class="msi1a c5">
+
+   <header><h1>{% trans "Commande refusé" %}</h1>
+        <p>{% trans "Une erreur est survenu dans le processus de paiement, nous somme désolé mais aucun produit ne sera expédié" %}</p></header>
+     <a href="/">Retourné sur la page d'accueil</a>
+</article>
+{% endblock %}

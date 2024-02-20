@@ -1,0 +1,51 @@
+{% extends 'layout/backend.html' %}
+{% load i18n %}
+{% block content %}
+<section class="msi1a">
+<div class="form1a">
+    <h1 class="form1b">{{ title|capfirst }}</h1>
+
+    <form id="form-form" method="post" class="" enctype="multipart/form-data">
+            <input type="hidden" name="csrfmiddlewaretoken" value="{{ csrf_token }}">
+
+        {{ form.marque }}
+        {{ form.modele }}
+        {{ form.carnet }}
+        {{ form.facture }}
+
+        {{ form.cylindre }}
+        {{ form.annee }}
+        {{ form.km }}
+        {{ form.cle_rouge }}
+        {{ form.etat }}
+        {{ form.estimation }}
+
+        <div class="file-drop-area">
+  <span class="fake-btn">{% trans "Choisir une image 1" %}</span>
+  <span class="file-msg">{% trans "déposez un fichiers au format 250px-250px" %}</span>
+   <input type="file" class="file-input" name="image1" accept="image/*" id="id_image1">
+</div>
+
+                <div class="file-drop-area">
+  <span class="fake-btn">{% trans "Choisir une image 2" %}</span>
+  <span class="file-msg">{% trans "déposez un fichiers au format 250px-250px" %}</span>
+   <input type="file" class="file-input" name="image2" accept="image/*" id="id_image2">
+</div>
+
+
+
+        <h2>Adresse *</h2>
+        {{ form.nom }}
+        {{ form.ville }}
+        {{ form.email }}
+        {{ form.commentaire }}
+        {{ form.phone }}
+
+
+
+
+
+      <p class="fs11">{% trans "En validant le formulaire, j'accepte les conditions générales d'utilisation, que mes informations soient publiques pour le but d'une mise en relation et bien sûr refusent que mes données soient fournies, vendu à des partenaires." %} </p>
+                <input class="subm1" type="submit" value="Mettre à jour"></form>
+</div></section>
+     {% endblock %}

@@ -1,0 +1,82 @@
+{% extends 'layout/frontend.html' %}
+{% load i18n %}
+{% block content %}
+<div class="msi1a">
+    <div class="form1a">
+<svg width="25" height="25" viewBox="0 0 1280 640" class="btnn3" onclick="rtn()" aria-hidden="true"><path fill="#a0a0a0" d="M331 47.5c-3.6.8-9.2 2.8-12.5 4.5-3.3 1.6-35.2 24-71 49.8-35.7 25.7-101 72.6-145 104.1-53.6 38.4-82.2 59.6-86.6 64-19.3 19.4-21 49.8-4 72.4 4.8 6.5 288.4 238.7 297.8 243.9 21.6 11.9 48 8.2 65.5-9.3 11.1-11.1 16.4-23.9 16.2-39.4-.1-13.3-3.5-23.5-11.3-33.8-2.2-2.9-33.1-28.9-81.4-68.5l-77.8-63.7 507.8-.5 507.8-.5 5.9-2.2c24.1-9.1 39.1-31.9 37.2-56.3-1.8-23.3-16.2-41.5-39.3-49.8-4.5-1.6-36.9-1.7-513.2-2.2l-508.4-.5 79.4-57c44.5-31.9 81.8-59.4 84.9-62.5 17.6-17.7 20.6-47 7-67.8-7.4-11.4-18.5-20-30.6-23.7-7.2-2.3-20.7-2.8-28.4-1z"/></svg>
+<section id="solution">
+       {% block edit %}
+<header>
+<h1 class="prf0 fs24">{{ x.title }} <span class="tt1">{% trans "Pièces moto" %}</span></h1>
+    <p class="prf5" >{{ x.def_stock|safe }} <span> {{ x.vues }} {% trans 'vues' %}</span></p>
+
+        <div class="prf2">
+            {% if x.image1 %}<div class="prf2ad"><img class="prf2a" src="{{ x.image1.url }}" alt="{{ x.title }}" width="300" height="300"></div>{% endif %}
+            {% if x.image2 %}<div class="prf2ad"><img class="prf2a" src="{{ x.image2.url }}" alt="{{ x.title }}" width="300" height="300"></div>{% endif %}
+            {% if x.image3 %}<div class="prf2ad"><img class="prf2a" src="{{ x.image3.url }}" alt="{{ x.title }}" width="300" height="300"></div>{% endif %}
+            {% if x.image4 %}<div class="prf2ad"><img class="prf2a" src="{{ x.image4.url }}" alt="{{ x.title }}" width="300" height="300"></div>{% endif %}</div></header>
+
+<div class="prf3">
+    {% if x.prix %}<p class="prf11"><strong>{{ x.prix }} €</strong></p>{% endif %}
+  <p class="prf3a" >{{ x.ville }}</p>
+    <p class="prf5">{% trans "posté le" %} {{ x.date_add|date:"j M Y" }}</p>
+
+<p class="prf6">{{ x.description|safe }}</p>
+<div><strong>Stock</strong> {{ x.stock }}</div>
+<div><strong>Type</strong> {{ x.type }}</div>
+    <div><strong>Categorie</strong> {{ x.categorie }}</div>
+    <p class="fs12" >{% trans "Vendu, démonté et expédier par promomoto.fr" %}</p>
+
+
+
+{% if x.stock != 0 %}<a class="subm2" href="{{ x.url_order_add }}">Commander cette pièce directement</a>
+
+
+    <form method="post" class="prf8">
+             <input type="hidden" name="csrfmiddlewaretoken" value="{{ csrf_token }}">
+                <input type="hidden" name="pr_id" value="{{ x.id }}" id="id_pr_id">
+                <input class="subm1 fs14" type="submit" value="{% trans 'Ajouter au panier' %}">
+            </form>
+    {% else %}
+    <p class="subm2">Vendu</p>
+    {% endif %}
+
+
+</div>
+{% endblock %}
+</section>
+
+
+
+<section >
+<h2 class="cat2a">{% trans "Retrouvé le vehicule de cette pièce" %}</h2>
+<ul>
+{% for xx in BB %}
+  <li class="dtr1">
+       <div class="dtr2">
+           {% if xx.image1 %}<div class="dtr2_1"><img class="dtr2_2" src="{{ xx.image1.url }}" alt="{{ xx.title }}" width="300" height="auto"></div>{% endif %}
+
+           <span class="dtr4" >{% trans "Par Promomoto" %}</span>
+
+    <p class="dtr5">{% trans "posté le" %} {{ xx.date_add|date:"j M Y" }}</p>
+    <h3 class="dtr6" ><a class="fs16" href="{{ xx.url_frontend }}" title="{{ xx.title }}">{{ xx.title }}</a></h3>
+<p class="dtr7">{{ xx.annee }}</p>
+       </div>
+    </li>
+      {% endfor %}
+    </ul>
+</section>
+
+    </div></div>
+
+
+ <aside class="msi1b" role="complementary" >
+     <div class="form1b">
+            <h3 >{% trans "Notre plateforme ecommerce et d'annonce" %}</h3>
+            <div class="">{% trans "Vos colis seront expédié sous les 48 heures via colissimo" %}</div>
+            <img style="width:100%; border-radius:7px; margin:10px 0; " src="/static/image/piece-moto-occasion.png" width="599" height="auto">
+            <p>{% trans "Notre but est de fédéré une communauté de motard autour de la pièce moto, des véhicules pour les professionnels et passionnés de deux roues" %}</p>
+            <p>{% trans "Découvrez notre plateforme communautaire, publier vos plus belle photos de deux roues dans l'espace compte de notre site. Car nous developpons des solutions via les dernieres technologies web pour répondre à une demande des utilisateurs toujours plus exigent" %}</p>
+        </div></aside>
+
+{% endblock %}

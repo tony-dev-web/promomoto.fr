@@ -1,0 +1,64 @@
+{% extends 'layout/base.html' %}
+{% load i18n %}
+{% block content %}
+<article class="msi1a">
+
+
+
+  <div class="form1a2">
+    <h1 class="form1b">Liste des produits</h1>
+        {% for x in AA %}
+
+    <div class="form1a2_0">
+    {% if x.image1 %}<div class="form1a2_1"> <img class="form1a2_2" src="{{ x.image1.url }}" alt="{{ mod.title }}" width="300" height="auto"></div>{% endif %}
+<div class="form1a2_4" >
+   <p style="margin:0">{{ x.ville }}</p>
+    <h2 class="c2" style="font-size:18px;font-weight: 400; margin:0 auto 20px ">{{ x.def_stock|safe }} {{ x.title }}</h2>
+  <div class=""><strong>Stock</strong> {{ x.stock }}</div>
+  <div class=""><strong>Prix</strong> {{ x.prix }} €</div>
+
+
+  </div></div>{% endfor %}
+
+       <div class="form1a2_3">Pour continuer la commande remplissez les champs du formulaire ci dessous</div>
+
+  </div>
+  <div class="form1a2">
+      <h1 class="form1b">Commande</h1>
+
+  <div class="form1a2_0">
+<div class="form1a2_4" >
+      <div class="form1a2_5"><strong>Quantité</strong><span class="c2 fr"> {{ quantite }}</span></div>
+      <div class="form1a2_5"><strong>Livraison</strong><span class="c2 fr"> {{ livraison }}</span></div>
+  <div class="form1a2_5"><strong>Total</strong><span class="c2 fr"> {{ total }} €</span></div>
+  </div></div>
+
+
+  </div>
+
+<div class="form1a">
+   <h1 class="form1b">{% trans "Notre page de commande" %}</h1>
+
+<form id="form-form" method="post" enctype="multipart/form-data">
+<input type="hidden" name="csrfmiddlewaretoken" value="{{ csrf_token }}">
+{{ form.email }}
+{{ form.expedition }}
+  {{ form.moto }}
+
+   <h2>Adresse pour livraison *</h2>
+  {{ form.nom }}
+{{ form.prenom }}
+{{ form.societe }}
+{{ form.adresse }}
+{{ form.code_postale }}
+{{ form.ville }}
+{{ form.phone }}
+  {{ form.commentaire }}
+  <p class="fs11">{% trans "En validant le formulaire, j'accepte les conditions générales d'utilisation, que mes informations soient publiques pour le but d'une mise en relation et bien sûr refusent que mes données soient fournies, vendu à des partenaires." %} </p>
+  <input class="btnn5" type="submit" value="Valider la commande"></form></div>
+
+
+
+
+</article>
+{% endblock %}

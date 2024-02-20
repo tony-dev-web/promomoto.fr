@@ -1,0 +1,30 @@
+{% extends 'layout/frontend.html' %}
+{% load i18n %}
+{% block content %}
+<article class="msi1a c5">
+
+   <header><h1>{% trans "Champ d'application" %}</h1>
+        <p>{% trans "Conformément à la loi relative à l'Informatique et aux Libertés du 6 janvier 1978, nous vous informons que ce site Internet a fait l'objet d'une déclaration à la Commission Nationale de l'Informatique et des Libertés, dénomination CNIL. En tant qu'utilisateur, vous disposez d'un droit d'accès, de modification et de suppression de votre contribution à ce site Internet." %}</p></header>
+        <section class="tm5"><h2>{% trans "Coordonnées" %}</h2>
+        <p>{% trans "Détenteur:" %} Tony.B</p>
+        <p>{% trans "Assistance:" %} contact[at]promomoto.fr</p>
+        <h3>{% trans "Plateforme éditrice" %}</h3>
+        <p>Promomoto.fr, 72300 Sablé sur Sarthe</p>
+
+
+
+        <h3>{% trans "Hébergement" %}</h3>
+        <p>Aws cloud services , P.O. Box 81226 Seattle, WA 98108-1226</p>
+        <p>Scaleway , 8 rue de la Ville l’Evêque, 75008 Paris, FR 35 433115904</p>
+        <h3>{% trans "Legislation" %}</h3>
+        <p>{% trans "L'ensemble de cette plateforme relève de la législation française sur le droit d'auteur et la propriété intellectuelle. Tous les droits de reproduction sont réservés à Promomoto, y compris pour les documents téléchargeables et les représentations iconographiques et photographie. La reproduction de tout ou partie de ce site sur un support électronique quel qu'il soit est formellement interdite sauf autorisation expresse de Promomoto." %}</p>
+        <p>{% trans "Respect de l'intégrité des documents reproduits : pas de modification ni altération d'aucune sorte." %}</p>
+
+        <h3>{% trans "Cookies" %}</h3>
+        <p>{% trans "Nous utilisons seulement des cookies pour Fypii.com ainsi nous assurons la sécurité de notre moteur de solution via un Csrf tokens pour verifier l'authenticité lors des connexions" %}</p>
+        
+        <h3>{% trans "Droit de publication" %}</h3>
+        <p>{% trans "Promomoto.fr se réserve le droit d'accepté ou de supprimer toutes publications non-conformes aux règles de notre plateforme." %}</p>
+        </section>
+</article>
+{% endblock %}

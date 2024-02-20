@@ -1,0 +1,105 @@
+{% load static i18n %}
+<!DOCTYPE html>
+<html id="fypii" lang="{{ LANGUAGE_CODE }}" dir="ltr" >
+<head prefix="og: https://ogp.me/ns/website#" >
+<meta charset="UTF-8">
+   <title>Promomoto | {% trans "Accessoires moto d'occasions" %}</title>
+   <meta  name="description" content="{% trans 'Promo moto est une plateforme de vente en ligne d équipements d occasions pour le secteur de la moto et destiné aux passionnés de motocycle, quad et 2 roues' %}">
+   <meta name="robots" content="index, follow">
+   <link rel="canonical" href="{{ request.build_absolute_uri }}">
+   <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+   <link rel="shortcut icon" type="image/png" href="https://promomoto.fr/static/image/favicon-moto.jpg">
+   <link rel="icon" type="image/png" href="https://promomoto.fr/static/image/favicon-moto.jpg">
+    <link rel="prefetch" as="manifest" href="https://promomoto.fr/manifest.json" >
+    <meta property="og:title" content="{% trans 'Accessoires moto d occasions' %}">
+   <meta property="og:description" content="{% trans 'Promo moto est une plateforme de vente en ligne d équipements d occasions pour le secteur de la moto et destiné aux passionnés de motocycle, quad et 2 roues' %}">
+   <meta property="og:url" content="{{ request.build_absolute_uri }}">
+    <meta property="og:image" content="https://promomoto.fr/static/image/occasion-moto.jpg" />
+   <meta property="og:site_name" content="Promomoto">
+    <link rel="search" type="application/opensearchdescription+xml" title="Promomoto" href="https://promomoto.fr/opensearch.xml">
+    <link rel="stylesheet" type="text/css" href="/static/css/base.css" media="screen" >
+    <link  rel="stylesheet" type="text/css" href="/static/css/index.css" media="screen" data-turbolinks-track="reload">
+</head>
+<body class="bod1" id="index">
+<header class="hea1" id="header" data-turbolinks-permanent="" >
+<div class="hea2">
+    <div class="hea2c">
+    {{ menu_c|safe }}
+    </div></div></header>
+
+<main class="main1" id="main">
+<article class="msi1a">
+  <section class="msi1a1">
+    <div class="frm1"><a id="logo" href="{% url 'index' %}" aria-label="Accueil Promomoto">
+
+<svg class="wi100" viewBox="0 0 620 230" width="620" height="230" aria-hidden="true" >
+  <g transform="matrix(7.9487077,0,0,7.3916539,-179.32256,7.1289125)">
+      <g transform="matrix(0.73648,0,0,0.73648,6.0,2.55356)">
+            <path d="m 24.467,22.357 9.2263,-2.7068 3.0086,-14.81 12.103,20.373 0.65705,-9.4688 17.477,-4.4977 -1.0513,-1.302 6.9647,0.94688 -4.8622,4.4977 v -1.657 l -15.506,3.7875 -1.1827,17.754 -13.141,-22.015 -1.5769,8.2852 -11.433,3.2935 z"
+               style="color:#000000;font-variant-ligatures:normal;font-variant-position:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-alternates:normal;font-variant-east-asian:normal;font-feature-settings:normal;font-variation-settings:normal;text-indent:0;text-decoration:none;text-decoration-line:none;text-decoration-style:solid;text-decoration-color:#000000;text-transform:none;text-orientation:mixed;dominant-baseline:auto;white-space:normal;shape-padding:0;shape-margin:0;inline-size:0;isolation:auto;mix-blend-mode:normal;solid-color:#000000;fill:#f9b03d;stroke:#ff9900;stroke-width:2.2716;stroke-miterlimit:7.9;paint-order:markers stroke fill;color-rendering:auto;image-rendering:auto;shape-rendering:auto;stop-color:#000000"
+             />
+          <g transform="matrix(0.66478,0,0,0.68421,39.738,9.1628)">
+            <image opacity="0.81" xlink:href="data:image/png;base64,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"
+               />
+            <path d="M 118.4,24 95.2,2.8 104.8,22.3 H 75.3 L 81,6.9 H 74.8 L 68.6,13.5 67.3,6.9 H 61.1 L 56.2,20 h 4.9 l 2.8,-7.4 1.4,7.4 H 67 l 6.9,-7.4 -3.5,9.6 h -16 a 6.6,6.6 0 0 0 -2.7,0.6 10.4,10.4 0 0 0 -2.4,1.7 9.6,9.6 0 0 0 -1.8,2.2 7.2,7.2 0 0 0 -0.9,2.7 1.3,1.3 0 0 0 -0.1,0.6 v 0.7 a 4.1,4.1 0 0 0 0.5,2.3 2.9,2.9 0 0 0 1.3,1.4 6.6,6.6 0 0 0 2.1,0.8 l 2.5,0.2 h 3 a 7.2,7.2 0 0 0 2.9,-0.6 7.2,7.2 0 0 0 2.5,-1.6 7.9,7.9 0 0 0 1.9,-2.2 9.9,9.9 0 0 0 1,-2.7 2.2,2.2 0 0 0 0.1,-0.8 v -0.7 a 4.9,4.9 0 0 0 -0.1,-1.2 h 5.1 l -3.6,9.8 h 4.6 L 74,25.6 h 5.3 a 7.6,7.6 0 0 0 -0.8,1.1 7.2,7.2 0 0 0 -0.9,2.7 1.3,1.3 0 0 0 -0.1,0.6 v 0.7 a 4.1,4.1 0 0 0 0.5,2.3 3.5,3.5 0 0 0 1.3,1.4 6.6,6.6 0 0 0 2.1,0.8 l 2.6,0.2 h 2.9 a 7.2,7.2 0 0 0 2.9,-0.6 8.7,8.7 0 0 0 2.6,-1.6 9.6,9.6 0 0 0 1.8,-2.2 7.4,7.4 0 0 0 1,-2.7 2.2,2.2 0 0 0 0.1,-0.8 v -0.7 a 4.9,4.9 0 0 0 -0.1,-1.2 h 9.8 l -9.8,11.1 z m -59,4.2 v 0.4 a 0.3,0.3 0 0 1 -0.1,0.2 v 0.3 a 1.7,1.7 0 0 1 -0.2,0.5 l -0.7,0.9 -1,0.8 -1,0.5 -0.7,0.3 H 53.5 A 1.1,1.1 0 0 1 52.7,31.8 L 52,31.2 a 4.1,4.1 0 0 1 -0.5,-0.9 3.6,3.6 0 0 1 -0.2,-1 V 29 c 0,-0.1 0.1,-0.3 0.1,-0.4 L 51.7,28 a 2.4,2.4 0 0 1 0.6,-0.9 l 0.8,-0.7 a 2.7,2.7 0 0 1 1,-0.6 l 0.8,-0.2 h 2.5 l 1,0.2 a 1.8,1.8 0 0 1 0.7,0.5 l 0.3,0.7 z m 31,0 v 0.9 l -0.3,0.5 -0.7,0.9 -1,0.8 -1,0.5 -0.7,0.3 H 84.5 A 1.1,1.1 0 0 1 83.7,31.8 L 83,31.2 a 4.1,4.1 0 0 1 -0.5,-0.9 3.6,3.6 0 0 1 -0.2,-1 V 29 c 0.1,-0.1 0.1,-0.3 0.2,-0.4 a 1.4,1.4 0 0 1 0.2,-0.6 2.4,2.4 0 0 1 0.6,-0.9 l 0.9,-0.7 a 2.4,2.4 0 0 1 0.9,-0.6 L 86,25.6 h 2.4 l 1.1,0.2 0.6,0.5 0.3,0.7 c 0,0.2 0.1,0.5 0.1,0.8 a 0.6,0.6 0 0 1 -0.1,0.4 z M 21.6,12.4 A 3.8,3.8 0 0 0 22.1,10.5 4.5,4.5 0 0 0 22,9.4 5.6,5.6 0 0 0 21.6,8.2 2.4,2.4 0 0 0 20.8,7.3 2,2 0 0 0 19.5,6.9 H 7.8 L 2.9,20 h 4.9 l 1.8,-4.7 h 7.1 a 7.2,7.2 0 0 0 1.9,-0.4 4.2,4.2 0 0 0 1.7,-1 6.4,6.4 0 0 0 1.3,-1.5 z M 17.2,11 c 0,0.1 -0.1,0.2 -0.1,0.3 a 0.2,0.2 0 0 0 -0.2,0.2 c -0.1,0.1 -0.2,0.2 -0.2,0.3 h -4.2 l -2.4,2.2 1.4,-3.7 h 5.2 c 0,0 0.1,0 0.2,0.2 l 0.3,0.3 z m 9.5,4.5 0.2,-0.2 5.3,4.7 h 5.4 l -5,-5 2.2,-0.2 2.1,-0.7 a 5.3,5.3 0 0 0 1.6,-1.3 3.8,3.8 0 0 0 0.7,-2.1 c 0,-0.4 -0.1,-0.8 -0.1,-1.3 A 5.6,5.6 0 0 0 38.7,8.2 2,2 0 0 0 37.8,7.3 2,2 0 0 0 36.4,6.9 H 25 L 20.1,20 H 25 Z m 2,-5.3 h 5.1 c 0.2,0 0.3,0 0.3,0.1 0,0.1 0.1,0.2 0.1,0.4 v 0.2 a 1.3,1.3 0 0 1 -0.1,0.6 c -0.2,0.3 -0.3,0.4 -0.6,0.4 h -4.1 l -2.2,2.2 z"
+               fill="#ffffff"
+               />
+            <path d="m 41.5,19 a 4,4 0 0 0 2,0.8 11,11 0 0 0 2.6,0.2 h 3 a 7.2,7.2 0 0 0 2.9,-0.6 11,11 0 0 0 2.6,-1.5 21.1,21.1 0 0 0 1.9,-2.3 7.2,7.2 0 0 0 0.9,-2.7 2,2 0 0 0 0.1,-0.7 2,2 0 0 0 0.1,-0.7 4.6,4.6 0 0 0 -0.5,-2.1 3.5,3.5 0 0 0 -1.2,-1.5 7.6,7.6 0 0 0 -2,-0.8 L 51.3,6.9 h -3.7 a 6.6,6.6 0 0 0 -2.7,0.6 7.8,7.8 0 0 0 -2.4,1.6 8.3,8.3 0 0 0 -1.9,2.3 6.2,6.2 0 0 0 -0.9,2.6 1.7,1.7 0 0 1 -0.1,0.7 v 0.6 a 5.2,5.2 0 0 0 0.5,2.3 3.2,3.2 0 0 0 1.4,1.4 z m 3,-5.2 c 0,-0.2 0.1,-0.3 0.1,-0.5 l 0.3,-0.6 0.6,-0.8 a 3,3 0 0 1 0.8,-0.8 l 1,-0.6 0.8,-0.2 h 2.5 l 1.1,0.2 0.6,0.5 0.3,0.7 c 0,0.3 0.1,0.5 0.1,0.8 v 0.4 a 0.9,0.9 0 0 0 -0.1,0.5 v 0.4 a 3.3,3.3 0 0 0 -0.3,0.6 l -0.7,0.8 -1,0.8 -1,0.6 -0.7,0.2 H 46.7 A 1.6,1.6 0 0 1 45.8,16.5 L 45.1,15.9 A 3.6,3.6 0 0 1 44.7,15 1.5,1.5 0 0 1 44.5,14.1 Z M 79.8,14 a 1.7,1.7 0 0 0 -0.1,0.7 v 0.6 a 5.3,5.3 0 0 0 0.4,2.3 3.8,3.8 0 0 0 1.4,1.4 4.9,4.9 0 0 0 2.1,0.8 10.6,10.6 0 0 0 2.6,0.2 h 2.9 a 7.7,7.7 0 0 0 3,-0.6 10.4,10.4 0 0 0 2.5,-1.5 10.1,10.1 0 0 0 1.9,-2.3 9.9,9.9 0 0 0 1,-2.7 c 0,-0.3 0.1,-0.5 0.1,-0.7 V 11.5 A 4.6,4.6 0 0 0 97.2,9.4 3.7,3.7 0 0 0 95.9,7.9 L 94,7.1 91.4,6.9 h -3.8 a 6.6,6.6 0 0 0 -2.7,0.6 7.8,7.8 0 0 0 -2.4,1.6 10.2,10.2 0 0 0 -1.8,2.3 6.2,6.2 0 0 0 -0.9,2.6 z m 4.7,-0.2 0.2,-0.5 a 1.4,1.4 0 0 1 0.2,-0.6 l 0.6,-0.8 0.9,-0.8 0.9,-0.6 0.9,-0.2 h 2.5 l 1,0.2 a 1,1 0 0 1 0.6,0.5 1.1,1.1 0 0 1 0.3,0.7 2.2,2.2 0 0 1 0.1,0.8 v 0.9 c 0,-0.1 -0.1,0 -0.1,0.2 v 0.2 c 0,0.2 -0.1,0.3 -0.3,0.6 -0.2,0.3 -0.4,0.5 -0.7,0.8 a 3.9,3.9 0 0 1 -1,0.8 l -1,0.6 -0.6,0.2 H 86.8 A 1.4,1.4 0 0 1 85.9,16.5 C 85.6,16.4 85.4,16.1 85.2,15.9 A 4.1,4.1 0 0 1 84.7,15 2.9,2.9 0 0 1 84.5,14.1 Z M 41.4,22.2 35,28.8 33.7,22.2 h -6.3 l -5.1,13.2 h 5 l 2.9,-7.4 1.4,7.4 h 1.8 l 7.1,-7.4 -2.8,7.4 h 5 l 5.1,-13.2 z"
+               fill="#ffffff"
+              />
+          </g>
+        </g>
+      </g>
+</svg>
+
+
+
+
+    </a></div>
+       <form class="frm2" method="GET" action="{% url 'recherche' %}" role="search" >
+         <svg width="16" height="16" viewBox="0 0 339.921 339.921" class="frm13" focusable="false" ><path fill="#939393" d="m335.165 292.071-81.385-84.077c-5.836-6.032-13.13-8.447-16.29-5.363-3.171 3.062-10.47.653-16.306-5.379l-1.164-1.207c36.425-47.907 32.89-116.499-10.851-160.24-47.739-47.739-125.142-47.739-172.875 0-47.739 47.739-47.739 125.131 0 172.87 44.486 44.492 114.699 47.472 162.704 9.045l.511.533c5.825 6.032 7.995 13.402 4.814 16.469-3.166 3.068-1.012 10.443 4.83 16.464l81.341 84.11c5.836 6.016 15.452 6.195 21.49.354l22.828-22.088c6.015-5.827 6.178-15.437.353-21.491zm-152.859-110.261c-32.852 32.857-86.312 32.857-119.159.011-32.852-32.852-32.847-86.318 0-119.164 32.847-32.852 86.307-32.847 119.148.005 32.857 32.847 32.857 86.302.011 119.148z" /></svg>
+        <input id="id_s" class="frm6" type="text" value="{{ request.GET.s }}" aria-label="{% trans 'Recherche' %}" name="s" placeholder="{% trans 'Decouvrez les nouvelles annonces' %}" maxlength="50" autocapitalize="none" autocomplete="off" autocorrect="off" role="combobox" spellcheck="false" required>
+
+           <input id="id_t" type="hidden" name="t">
+
+
+           <button class="frm8" type="submit" aria-label="Rechercher">
+                <svg width="16" height="16" viewBox="0 0 339.921 339.921"><path d="M335.165 292.071l-81.385-84.077c-5.836-6.032-13.13-8.447-16.29-5.363-3.171 3.062-10.47.653-16.306-5.379l-1.164-1.207c36.425-47.907 32.89-116.499-10.851-160.24-47.739-47.739-125.142-47.739-172.875 0-47.739 47.739-47.739 125.131 0 172.87 44.486 44.492 114.699 47.472 162.704 9.045l.511.533c5.825 6.032 7.995 13.402 4.814 16.469-3.166 3.068-1.012 10.443 4.83 16.464l81.341 84.11c5.836 6.016 15.452 6.195 21.49.354l22.828-22.088c6.015-5.827 6.178-15.437.353-21.491zM182.306 181.81c-32.852 32.857-86.312 32.857-119.159.011-32.852-32.852-32.847-86.318 0-119.164 32.847-32.852 86.307-32.847 119.148.005 32.857 32.847 32.857 86.302.011 119.148z" fill="#fff"/></svg>
+            </button>
+    </form>
+    <h1 class="frm10" ><i class="c1" aria-hidden="true">+</i> {% trans "Vente de pièces moto d'occasions et annonces gratuites" %}️</h1>
+      <p class="frm14">Retrouvez nos {{ count_produit }} pièces en vente et {{ count_annonce }} annonces déposer par {{ count_motard }} passionnés</p>
+</section>
+
+
+    <aside class="msi1b1">
+        <ul class="msi1b1_00">
+    {% for xx in AA %}
+<li class="msi1b1_0"><a href="{{ xx.url_frontend }}" {{ xx.robots_url }}>
+    <div class="msi1b1_1">
+        {% if not xx.image1 %}<img class="msi1b1_d" src="/static/image/default.jpeg" alt="default">
+        {% else %}<img class="msi1b1_3" src="{{ xx.image1.url }}" alt="{{ xx.title }}" width="" height="">{% endif %}</div>
+
+<div class="msi1b1_4">
+    <p class="msi1b1_5" >{{ xx.ville }} {% if xx.prix %}<span class="msi1b1_12">{{ xx.prix }} €</span>{% endif %}</p>
+    <h3 class="msi1b1_9 c2">{{ xx.title }}</h3>
+     <p class="msi1b1_8">{{ xx.marque }} <span class="msi1b1_12">{{ xx.vues }} {% trans "vues" %}</span></p>
+
+</div>
+</a></li>{% endfor %}</ul></aside>
+
+</article></main>
+
+<footer class="foo1" id="footer" data-turbolinks-permanent="" role="contentinfo">
+        <nav class="foo2 fs13"><span id="copyright"> &copy; Promomoto 2021 | Sarthe - Pays de la loire - France |</span>
+            <a class="foo3" href="{% url 'mentions' %}">{% trans "Mentions légales" %}</a> |
+          <a class="foo3" href="{% url 'concept' %}">{% trans "Concept" %}</a>
+            </nav>
+    </footer>
+
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","url":"https://promomoto.fr/","name":"Promomoto","description":"Promo moto est une plateforme de vente en ligne d équipements d occasions pour le secteur de la moto et destiné aux passionnés de motocycle, quad et 2 roues","inLanguage":"{{ LANGUAGE_CODE }}","publishingPrinciples":"https://promomoto.fr/mentions-legales/","sameAs":[ "https://www.linkedin.com/company/promomoto","https://fypii.com/promomoto-entreprise-10"],"logo":{"@type":"ImageObject","url":"https://promomoto.fr/static/image/favicon-moto.jpg","width":64,"height":64}}</script>
+<script type="application/javascript" src="/static/js/base.js" defer crossorigin="anonymous" data-turbolinks-eval="false"></script>
+<script type="application/javascript" src="/static/js/lib/jquery-ui-autocomplete.min.js" crossorigin="anonymous" defer></script>
+<script type="application/javascript" charset="UTF-8" src="/static/js/auto.min.js" crossorigin="anonymous" defer></script>
+
+</body></html>

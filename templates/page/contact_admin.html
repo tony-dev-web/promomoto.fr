@@ -1,0 +1,17 @@
+{% extends 'layout/backend.html' %}
+{% load i18n %}
+{% block content %}
+<section class="msi1a">
+<div class="form1a">
+    <h1 class="form1b">{{ title|capfirst }}</h1>
+
+    <form id="form-form" method="post" class="" enctype="multipart/form-data">
+            <input type="hidden" name="csrfmiddlewaretoken" value="{{ csrf_token }}">
+        {{ form.email_coucou }}
+        {{ form.objet_coucou }}
+        {{ form.texte_coucou }}
+        {{ form.connaissance_coucou }}
+      <p class="fs11">{% trans "En validant le formulaire, j'accepte les conditions générales d'utilisation, que mes informations soient publiques pour le but d'une mise en relation et bien sûr refusent que mes données soient fournies, vendu à des partenaires." %} </p>
+                <input class="subm1" type="submit" value="Mettre à jour"></form>
+</div></section>
+     {% endblock %}

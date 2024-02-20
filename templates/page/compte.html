@@ -1,0 +1,82 @@
+{% extends 'layout/backend.html' %}
+{% load i18n %}
+{% block content %}
+<section class="msi1a">
+    <h1 class="msi1a1">{% trans "Tableaux de bord de" %} {{ request.user.email }}</h1>
+   <div class="cpt17">
+    <p>Id: {{ request.user.id }}</p>
+    <p>Inscription: {{ request.user.date_joined|date:"j M Y" }}</p></div>
+    {% if CC %}{% for xx in CC %}
+     <p>Surnom: {{ xx.surnom }} </p>
+    <p>Groupe: {{ xx.role }} </p>{% endfor %}{% else %}<p><a href="{% url 'groups' %}">Definir le groupe utilisateur</a></p>{% endif %}
+    </div>
+<p><a class="fs14" href="{% url 'contact_admin' %}">{% trans "Nous contactez" %}</a></p>
+<p><a class="c1"  href="{% url 'account_logout' %}">{% trans "Se déconnecter" %}</a></p>
+</section>
+
+
+<aside class="msi1b">
+        <ul><h2 class="form1b fs18">{% trans "Mes annonces" %}</h2>
+        {% if AA %}  {% for xx in AA %}
+
+<li class="msi1b1">
+    <div class="msi1b1_1">
+        {% if not xx.image1 %}<img class="msi1b1_d" src="/static/image/default.jpeg" alt="default">
+        {% else %}<img class="msi1b1_3" src="{{ xx.image1.url }}" alt="{{ xx.title }}" width="" height="">{% endif %}</div>
+    <div class="msi1b1_10">
+<div class="msi1b1_4">
+    <p class="msi1b1_5" >{{ xx.ville }}</p>
+    <p class="msi1b1_8">{% trans "posté le" %} {{ xx.date_add|date:"j M Y" }}</p>
+    <h3 class="msi1b1_9"><a href="{{ xx.url_update }}">{{ xx.title }}</a></h3>
+     <p class="msi1b1_8">{{ xx.vues }} {% trans "vues" %} </p>
+</div></div> {% if xx.prix %}<div class="msi1b1_11"><span class="msi1b1_12">{{ xx.prix }} €</span>
+    <a class="msi1b1_13" href="{{ xx.url_supression }}" title="supression"><svg width="15" height="15" viewBox="0 0 1000 1000" class="btnn3" aria-hidden="true" focusable="false"><path fill="#a0a0a0" d="M638.6,500l322.7-322.7c38.3-38.3,38.3-100.3,0-138.6C923,0.4,861,0.4,822.7,38.7L500,361.4L177.3,38.7C139,0.4,77,0.4,38.7,38.7C0.4,77,0.4,139,38.7,177.3L361.4,500L38.7,822.7C0.4,861,0.4,923,38.7,961.3C57.9,980.4,82.9,990,108,990s50.1-9.6,69.3-28.7L500,638.6l322.7,322.7c19.1,19.1,44.2,28.7,69.3,28.7c25.1,0,50.1-9.6,69.3-28.7c38.3-38.3,38.3-100.3,0-138.6L638.6,500z"></path></svg></a></div>{% endif %}
+</li>
+            {% endfor %}
+        {% else %}
+     <li class="msi1b1">
+         <p class="msi1b1_17">Vous n'avez pour le moment déposer aucune annonce</p>
+         <p  class="msi1b1_17"><a href="{% url 'creation_annonce' %}">{% trans "Déposer une annonce" %}</a></p></li>
+            {% endif %}
+        </ul>
+
+
+
+        <ul class=""> <h2 class="form1b fs18">{% trans "Partager des evenements ou votre photos de deux roues" %}</h2>
+ <form class="msi1b2" id="form-form" method="post" enctype="multipart/form-data">
+    <input type="hidden" name="csrfmiddlewaretoken" value="{{ csrf_token }}">
+            {{ form.publication }}
+
+       <div class="file-drop-area">
+  <span class="fake-btn">{% trans "Publiez une photo" %}</span>
+   <input type="file" class="file-input" name="image1" accept="image/*" id="id_image1">
+</div>
+
+         <input class="subm1" type="submit" aria-hidden="true" value="{% trans 'Partager' %}">
+      </form>
+
+            {% for xx in BB %}
+<li class="msi1b1">
+
+        {% if xx.image1 %} <div class="msi1b1_15"><img class="msi1b1_16" src="{{ xx.image1.url }}" alt="{{ xx.title }}" width="100%" height=""></div>{% endif %}
+
+{% if not xx.client == request.user.id %}
+    <a href="{{ xx.url_signalement }}" title="signalement" rel="nofollow" class="fr" ><svg class="btnn3" width="18" height="18" viewBox="0 0 45.583 45.583" aria-hidden="true" focusable="false"><path fill="#a0a0a0" d="M22.793 12.196c-3.361 0-6.078-2.729-6.078-6.099C16.715 2.73 19.432 0 22.793 0c3.353 0 6.073 2.729 6.073 6.097 0 3.369-2.721 6.099-6.073 6.099zm.001 16.693c-3.361 0-6.079-2.729-6.079-6.099 0-3.366 2.717-6.099 6.078-6.099 3.353 0 6.073 2.732 6.075 6.099-.002 3.372-2.724 6.099-6.074 6.099zm0 16.694c-3.361 0-6.079-2.729-6.079-6.099s2.717-6.098 6.078-6.098c3.353-.002 6.073 2.729 6.073 6.098s-2.722 6.099-6.072 6.099z"/></svg></a>
+{% else %}
+    <a href="{{ xx.url_supression }}" title="supression" rel="nofollow" class="fr" ><svg width="15" height="15" viewBox="0 0 1000 1000" class="btnn3" aria-hidden="true" focusable="false"><path fill="#a0a0a0" d="M638.6,500l322.7-322.7c38.3-38.3,38.3-100.3,0-138.6C923,0.4,861,0.4,822.7,38.7L500,361.4L177.3,38.7C139,0.4,77,0.4,38.7,38.7C0.4,77,0.4,139,38.7,177.3L361.4,500L38.7,822.7C0.4,861,0.4,923,38.7,961.3C57.9,980.4,82.9,990,108,990s50.1-9.6,69.3-28.7L500,638.6l322.7,322.7c19.1,19.1,44.2,28.7,69.3,28.7c25.1,0,50.1-9.6,69.3-28.7c38.3-38.3,38.3-100.3,0-138.6L638.6,500z"></path></svg></a>
+  {% endif %}
+
+    <div class="msi1b1_4">
+    <p class="msi1b1_5" >{{ xx.publication }}</p>
+        <p class="msi1b1_14">{% trans "posté le" %} {{ xx.date_add|date:"j M Y" }} par {{ xx.client }}</p>
+</div>
+</li>{% endfor %}</ul>
+</aside>
+<aside class="msi1c"><h1 class="form1b">{% trans "Option" %}</h1>
+<ul>
+    <li style="margin:10px 0"><a href="{% url 'list_order' %}" >{% trans "Liste de mes commandes" %}</a></li>
+     <li style="margin:5px 0"><a href="{% url 'info-motard' %}" >{% trans "Information utilisateur" %}</a></li>
+
+</ul>
+</aside>
+{% endblock %}

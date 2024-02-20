@@ -1,0 +1,33 @@
+{% extends 'layout/frontend.html' %}
+{% load i18n %}
+{% block content %}
+<article class="msi1a c5">
+
+   <header><h1>{% trans "Vos informations" %}</h1>
+       <p>{% trans "Decouvrez toutes les information de votre compte utilisateur" %}</p></header>
+        <section class="tm5">
+
+       {% for xx in AA %}
+             <p><strong>{% trans "Role:" %}</strong> {{ xx.role }}</p>
+       <p><strong>{% trans "Nom:" %}</strong> {{ xx.nom }}</p>
+            <p><strong>{% trans "Prenom:" %}</strong> {{ xx.prenom }}</p>
+            <p><strong>{% trans "Surnom de motard:" %}</strong> {{ xx.surnom }}</p>
+            <p><strong>{% trans "Societe:" %}</strong> {{ xx.societe }}</p>
+    <p><strong>{% trans "Ville:" %}</strong> {{ xx.ville }}</p>
+
+            <p><strong>{% trans "Code postale:" %}</strong> {{ xx.code_postale }}</p>
+            <p><strong>{% trans "Telephone:" %}</strong> {{ xx.phone }}</p>
+    <p><strong>{% trans "Email commande:" %}</strong> {{ xx.email }}</p>
+          <p><strong>{% trans "Votre moto:" %}</strong> {{ xx.moto }}</p>
+<p><strong>{% trans "Date d'inscription:" %}</strong> {{ request.user.date_joined|date:"j M Y" }}</p>
+<p><strong>{% trans "Numero utilisateur:" %}</strong> {{ request.user.id }}</p>
+<p><strong>{% trans "Session utilisateur:" %}</strong> {{ request.session.session_key }}</p>
+<p><strong>{% trans "Email inscription:" %}</strong> {{ request.user.email }}</p>
+
+
+       {% endfor %}
+
+
+        </section>
+</article>
+{% endblock %}
